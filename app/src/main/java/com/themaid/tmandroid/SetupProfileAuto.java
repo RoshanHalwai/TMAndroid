@@ -1,7 +1,6 @@
 package com.themaid.tmandroid;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
@@ -22,29 +21,24 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.io.IOException;
-
 public class SetupProfileAuto extends AppCompatActivity {
 
     private static final int PICK_IMAGE = 1;
     private static final int CAMERA_REQUEST = 2;
-
+    Uri uriUserAadhar = null;
     private TextView textAadharUploaded;
     private Button buttonVerifyPhoneNumber;
     private EditText editMobileNumber;
     private EditText editFullName;
-
     private DatabaseReference allUsers;
-
     private boolean boolUserExists = false;
-    private Bitmap bitmapAadhar = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setup_profile_auto);
 
-                /* Getting reference to Firebase */
+        /* Getting reference to Firebase */
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         allUsers = database.getReference("users").child("all");
 
@@ -102,14 +96,14 @@ public class SetupProfileAuto extends AppCompatActivity {
                     allUsers.child(keyUserType).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
-                            if (dataSnapshot.hasChild(charSequence.toString())) {
+                            /*if (dataSnapshot.hasChild(charSequence.toString())) {
                                 editMobileNumber.setError("Mobile Number already exists");
                                 boolUserExists = true;
                             } else {
                                 editMobileNumber.setError(null);
                                 boolUserExists = false;
                                 editFullName.requestFocus();
-                            }
+                            }*/
                         }
 
                         @Override
@@ -151,7 +145,6 @@ public class SetupProfileAuto extends AppCompatActivity {
 
             buttonCancel.setOnClickListener(view -> {
                 layoutUploadAadharCard.setVisibility(View.INVISIBLE);
-                bitmapAadhar = null;
                 buttonVerifyPhoneNumber.setVisibility(View.INVISIBLE);
             });
 
@@ -168,6 +161,10 @@ public class SetupProfileAuto extends AppCompatActivity {
                 intent.putExtra("UserType", strUserType);
                 intent.putExtra("LoginType", getLoginType(savedInstanceState));
                 intent.putExtra("UserPhoneNumber", editMobileNumber.getText().toString());
+                intent.putExtra("UserFullName", editFullName.getText().toString());
+                if (strUserType.equals("Maid")) {
+                    intent.putExtra("UserAadhar", uriUserAadhar.toString());
+                }
                 startActivity(intent);
             }
         });
@@ -181,20 +178,15 @@ public class SetupProfileAuto extends AppCompatActivity {
         switch (requestCode) {
             case PICK_IMAGE:
                 if (resultCode == RESULT_OK && data != null && data.getData() != null) {
-                    Uri selectedImage = data.getData();
-                    try {
-                        bitmapAadhar = MediaStore.Images.Media.getBitmap(getContentResolver(), selectedImage);
-                        displaySuccessMessage();
-                    } catch (IOException exception) {
-                        exception.getStackTrace();
-                    }
+                    uriUserAadhar = data.getData();
+                    displaySuccessMessage();
                 } else {
                     displayErrorMessage();
                 }
                 break;
             case CAMERA_REQUEST:
                 if (resultCode == RESULT_OK && data.getExtras() != null) {
-                    bitmapAadhar = (Bitmap) data.getExtras().get("data");
+                    uriUserAadhar = data.getData();
                     displaySuccessMessage();
                 } else {
                     displayErrorMessage();
@@ -217,9 +209,6 @@ public class SetupProfileAuto extends AppCompatActivity {
             return false;
         } else if (editFullName.getText().toString().isEmpty()) {
             editFullName.setError("Name is Invalid");
-            return false;
-        } else if (bitmapAadhar == null) {
-            displayErrorMessage();
             return false;
         }
         return true;
