@@ -1,0 +1,70 @@
+<resources>
+    <string name="app_name">The Maid</string>
+
+    <string name="tile_image">tileImage</string>
+    <string name="gradient_blue">gradient blue image</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="sign_in">I already have an account</string>
+    <string name="the_maid">THE MAID</string>
+    <string name="image_of_a_maid">Image of a maid</string>
+    <string name="back_button_to_navigate_previous_activity">Back button to navigate previous activity</string>
+    <string name="language_selection_title">Select your Language</string>
+    <string name="select_your_language">Please select Language of your choice</string>
+    <string name="kannada">Kannada</string>
+    <string name="tamil">Tamil</string>
+    <string name="hindi">Hindi</string>
+    <string name="english">English</string>
+    <string name="marathi">Marathi</string>
+    <string name="bengali">Bengali</string>
+    <string name="gujarati">Gujarati</string>
+    <string name="malayalam">Malayalam</string>
+    <string name="telugu">Telugu</string>
+
+    <string name="profile_process_title">Profile Process</string>
+    <string name="setup_profile">How would you like to setup your profile?</string>
+    <string name="manual">Manual</string>
+    <string name="automatic">Automatic</string>
+
+    <string name="setup_profile_title">Setup Profile</string>
+    <string name="verify_phone_number">Verify My Number</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="full_name">Full Name</string>
+    <string name="upload_aadhar_card">Upload Aadhar Card</string>
+    <string name="library_access">We will need your permission to access your photo library in order to let you
+    pick your aadhar card</string>
+    <string name="aadhar_card_uploaded_successfully">Aadhar Card uploaded successfully</string>
+    <string name="aadhar_card_uploaded_failed">Aadhar Card upload failed</string>
+
+    <string name="phone_verification">Phone Verification</string>
+    <string name="add_work_details">Add Work Details</string>
+    <string name="enter_verification_code">We need to verify your account. Please enter the 6 digit verification
+    code from text message.</string>
+    <string name="verify_otp">Verify OTP</string>
+    <string name="resend_otp">Resend OTP</string>
+    <string name="incorrect_otp">You have entered an incorrect OTP</string>
+
+    <string name="verify_work_details">Please enter the details of your work.
+        We will verify these details before activating your profile.</string>
+    <string name="resident_mobile_number">Resident Mobile Number</string>
+    <string name="resident_full_name">Resident Full Name</string>
+    <string name="resident_address">Resident Address</string>
+    <string name="activate_my_profile">Activate My Profile</string>
+
+    <string name="profile_created_title">Profile Created</string>
+    <string name="profile_created">Great! Your profile has been created and will be activated shortly.</string>
+    <string name="gallery">Gallery</string>
+    <string name="camera">Camera</string>
+    <string name="cancel">Cancel</string>
+
+    <string name="contact_back_office">Please reach out to our back office team with following;</string>
+
+    <string name="user_type_title">User Type</string>
+    <string name="customer">Proceed as Customer</string>
+    <string name="maid">Proceed as Maid</string>
+    <string name="phone_number_for_otp_verification">3. Mobile Phone for OTP verification</string>
+    <string name="current_work_place">2. Current Work Place</string>
+    <string name="aadhar_card">1. Original Aadhar Card</string>
+
+    <string name="sign_in_mobile_number">Sign In</string>
+
+</resources>

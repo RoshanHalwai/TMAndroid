@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    android:orientation="vertical"
+    tools:context=".LanguageSelection">
+
+    <ImageView
+        android:id="@+id/tile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0.07"
+        android:contentDescription="@string/tile_image"
+        android:scaleType="fitXY"
+        android:src="@drawable/concrete_tile" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:alpha="0.2"
+        android:contentDescription="@string/gradient_blue"
+        android:scaleType="center"
+        android:src="@drawable/circular_gradient_blue" />
+
+    <LinearLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/back_button_to_navigate_previous_activity"
+            android:scaleType="fitCenter"
+            android:src="@drawable/arrow_left_white" />
+
+        <TextView
+            android:id="@+id/textSelectLanguageTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="@string/language_selection_title"
+            android:textColor="@android:color/white"
+            android:textSize="24sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textSelectLanguage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:paddingBottom="10dp"
+        android:text="@string/select_your_language"
+        android:textColor="@android:color/white"
+        android:textSize="20sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <Button
+                android:id="@+id/buttonHindi"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="#99000000"
+                android:text="@string/hindi"
+                android:textAllCaps="false"
+                android:textColor="@color/tmLightBlue"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/buttonEnglish"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="#99000000"
+                android:text="@string/english"
+                android:textAllCaps="false"
+                android:textColor="@color/tmLightBlue"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/buttonMarathi"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="#99000000"
+                android:text="@string/marathi"
+                android:textAllCaps="false"
+                android:textColor="@color/tmLightBlue"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <Button
+                android:id="@+id/buttonTamil"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="#99000000"
+                android:text="@string/tamil"
+                android:textAllCaps="false"
+                android:textColor="@color/tmLightBlue"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/buttonKannada"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="#99000000"
+                android:text="@string/kannada"
+                android:textAllCaps="false"
+                android:textColor="@color/tmLightBlue"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/buttonBengali"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="#99000000"
+                android:text="@string/bengali"
+                android:textAllCaps="false"
+                android:textColor="@color/tmLightBlue"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <Button
+                android:id="@+id/buttonGujarati"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="#99000000"
+                android:text="@string/gujarati"
+                android:textAllCaps="false"
+                android:textColor="@color/tmLightBlue"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/buttonTelugu"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="#99000000"
+                android:text="@string/telugu"
+                android:textAllCaps="false"
+                android:textColor="@color/tmLightBlue"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/buttonMalayalam"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="#99000000"
+                android:text="@string/malayalam"
+                android:textAllCaps="false"
+                android:textColor="@color/tmLightBlue"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

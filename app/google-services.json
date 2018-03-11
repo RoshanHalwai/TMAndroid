@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "354276157397",
+    "firebase_url": "https://themaid-321eb.firebaseio.com",
+    "project_id": "themaid-321eb",
+    "storage_bucket": "themaid-321eb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:354276157397:android:2ad7b0208b043d5c",
+        "android_client_info": {
+          "package_name": "com.themaid.tmandroid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "354276157397-vq47evognk4jlns5ba9iq43e3t4sal7h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.themaid.tmandroid",
+            "certificate_hash": "f665b2bcd2e835b638afc1d585e16dc0ce418010"
+          }
+        },
+        {
+          "client_id": "354276157397-pbt0t9j3csej4r9pohged4r6ve05pg3m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDo_9zYHOM0Oui4vTBTAp3Uj5yCDuMjQfc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "354276157397-pbt0t9j3csej4r9pohged4r6ve05pg3m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
