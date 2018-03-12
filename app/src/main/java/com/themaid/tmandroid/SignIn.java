@@ -16,8 +16,8 @@ import android.widget.Toast;
 
 public class SignIn extends AppCompatActivity {
 
-    EditText editMobileNumber;
-    UserObject userObject;
+    private EditText editMobileNumber;
+    private UserObject userObject;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

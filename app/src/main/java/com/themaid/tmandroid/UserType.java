@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 public class UserType extends AppCompatActivity {
 
-    UserObject userObject;
+    private UserObject userObject;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

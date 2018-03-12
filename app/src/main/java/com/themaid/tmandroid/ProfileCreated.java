@@ -18,7 +18,7 @@ import com.google.firebase.storage.StorageReference;
 
 public class ProfileCreated extends AppCompatActivity {
 
-    UserObject userObject;
+    private UserObject userObject;
 
     private DatabaseReference allUsers;
     private DatabaseReference userPrivateInfo;
@@ -103,7 +103,7 @@ public class ProfileCreated extends AppCompatActivity {
         }
     }
 
-    public String getFileExtension(Uri uri) {
+    private String getFileExtension(Uri uri) {
         ContentResolver cR = getContentResolver();
         MimeTypeMap mime = MimeTypeMap.getSingleton();
         return mime.getExtensionFromMimeType(cR.getType(uri));

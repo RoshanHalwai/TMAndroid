@@ -18,10 +18,10 @@ public class SetupProfileAuto extends AppCompatActivity {
     private static final int PICK_IMAGE = 1;
     private static final int CAMERA_REQUEST = 2;
 
-    UserObject userObject;
+    private UserObject userObject;
 
-    Uri uriUserAadhar = null;
-    String strUserAadhar = null;
+    private Uri uriUserAadhar = null;
+    private String strUserAadhar = null;
     private TextView textAadharUploaded;
     private Button buttonProceed;
     private EditText editFullName;

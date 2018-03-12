@@ -31,9 +31,9 @@ import java.util.concurrent.TimeUnit;
 
 public class PhoneVerification extends AppCompatActivity {
 
-    String strUserPhoneNumber;
+    private String strUserPhoneNumber;
 
-    UserObject userObject;
+    private UserObject userObject;
 
     private String phoneVerificationId;
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks verificationCallbacks;
