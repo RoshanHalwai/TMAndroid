@@ -16,26 +16,15 @@ public class MainActivity extends AppCompatActivity {
 
         /*Getting ID's for all the views */
         final TextView textAppTitle = findViewById(R.id.textAppTitle);
-        final TextView textSignIn = findViewById(R.id.textSignIn);
-        final Button buttonSignUp = findViewById(R.id.buttonSignUp);
+        final Button buttonGetStarted = findViewById(R.id.buttonGetStarted);
 
         /*Setting font for all the views */
         final Typeface latoLight = Typeface.createFromAsset(getAssets(), "fonts/Lato-Light.ttf");
         textAppTitle.setTypeface(latoLight);
-        textSignIn.setTypeface(latoLight);
-        buttonSignUp.setTypeface(latoLight);
+        buttonGetStarted.setTypeface(latoLight);
 
-        /* Adding events to Sign Up Button */
-        buttonSignUp.setOnClickListener(view -> {
-            Intent intent = new Intent(MainActivity.this, LanguageSelection.class);
-            intent.putExtra("LoginType", "SignUp");
-            startActivity(intent);
-        });
-
-        /* Adding events to Sign In Text field */
-        textSignIn.setOnClickListener(view -> {
-            startActivity(new Intent(MainActivity.this, SignIn.class));
-        });
+        /* Adding events to Get Started Button */
+        buttonGetStarted.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, SignIn.class)));
     }
 
 }

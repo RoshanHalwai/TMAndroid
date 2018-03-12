@@ -31,8 +31,7 @@ public class ProfileProcess extends AppCompatActivity {
 
         buttonAutomatic.setOnClickListener(view -> {
             Intent intent = new Intent(ProfileProcess.this, SetupProfileAuto.class);
-            intent.putExtra("LoginType", "SignUp");
-            intent.putExtra("UserType", "Maid");
+            intent.putExtra("UserObject", getIntent().getSerializableExtra("UserObject"));
             startActivity(intent);
         });
 

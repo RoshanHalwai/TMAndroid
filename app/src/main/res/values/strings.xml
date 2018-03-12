@@ -3,7 +3,7 @@
 
     <string name="tile_image">tileImage</string>
     <string name="gradient_blue">gradient blue image</string>
-    <string name="sign_up">Sign Up</string>
+    <string name="sign_up">Get Started</string>
     <string name="sign_in">I already have an account</string>
     <string name="the_maid">THE MAID</string>
     <string name="image_of_a_maid">Image of a maid</string>
@@ -27,6 +27,7 @@
 
     <string name="setup_profile_title">Setup Profile</string>
     <string name="verify_phone_number">Verify My Number</string>
+    <string name="hire_a_maid">Hire A Maid</string>
     <string name="mobile_number">Mobile Number</string>
     <string name="full_name">Full Name</string>
     <string name="upload_aadhar_card">Upload Aadhar Card</string>
@@ -61,9 +62,9 @@
     <string name="user_type_title">User Type</string>
     <string name="customer">Proceed as Customer</string>
     <string name="maid">Proceed as Maid</string>
-    <string name="phone_number_for_otp_verification">3. Mobile Phone for OTP verification</string>
-    <string name="current_work_place">2. Current Work Place</string>
-    <string name="aadhar_card">1. Original Aadhar Card</string>
+    <string name="aadhar_card">1. Original Aadhar Card.</string>
+    <string name="current_work_place">2. Current Work Place details.</string>
+    <string name="phone_number_for_otp_verification">3. Mobile Phone for OTP verification.</string>
 
     <string name="sign_in_mobile_number">Sign In</string>
 

@@ -53,38 +53,10 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/textMobileNumber"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/toolbar"
-        android:layout_marginLeft="30dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="100dp"
-        android:text="@string/mobile_number"
-        android:textColor="@android:color/white"
-        android:textSize="14sp" />
-
-    <EditText
-        android:id="@+id/editMobileNumber"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/textMobileNumber"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:backgroundTint="@android:color/white"
-        android:inputType="number"
-        android:maxLength="10"
-        android:textColor="@color/tmDarkBlue"
-        android:textSize="22sp">
-
-        <requestFocus />
-    </EditText>
-
-    <TextView
         android:id="@+id/textFullName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editMobileNumber"
+        android:layout_centerVertical="true"
         android:layout_marginLeft="30dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="10dp"
@@ -175,7 +147,7 @@
         android:id="@+id/textLibraryPermission"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/buttonVerifyPhoneNumber"
+        android:layout_above="@+id/buttonProceed"
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
@@ -185,7 +157,7 @@
         android:textSize="12sp" />
 
     <Button
-        android:id="@+id/buttonVerifyPhoneNumber"
+        android:id="@+id/buttonProceed"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

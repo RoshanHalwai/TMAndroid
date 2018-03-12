@@ -10,10 +10,14 @@ import android.widget.TextView;
 
 public class UserType extends AppCompatActivity {
 
+    UserObject userObject;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_type);
+
+        userObject = (UserObject) getIntent().getSerializableExtra("UserObject");
 
         final TextView textUserTypeTitle = findViewById(R.id.textUserTypeTitle);
         final Button buttonMaid = findViewById(R.id.buttonMaid);
@@ -27,12 +31,17 @@ public class UserType extends AppCompatActivity {
 
         buttonCustomer.setOnClickListener(view -> {
             Intent intent = new Intent(UserType.this, SetupProfileAuto.class);
-            intent.putExtra("UserType", "Customer");
-            intent.putExtra("LoginType", "SignUp");
+            userObject.setUserType("Customer");
+            intent.putExtra("UserObject", userObject);
             startActivity(intent);
         });
 
-        buttonMaid.setOnClickListener(view -> startActivity(new Intent(UserType.this, ProfileProcess.class)));
+        buttonMaid.setOnClickListener(view -> {
+            Intent intent = new Intent(UserType.this, ProfileProcess.class);
+            userObject.setUserType("Maid");
+            intent.putExtra("UserObject", userObject);
+            startActivity(intent);
+        });
 
         backButton.setOnClickListener(view -> onBackPressed());
     }

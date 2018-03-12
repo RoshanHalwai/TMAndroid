@@ -44,19 +44,8 @@
         android:scaleType="center"
         android:src="@drawable/circular_gradient_blue" />
 
-    <TextView
-        android:id="@+id/textSignIn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/buttonSignUp"
-        android:layout_marginBottom="20dp"
-        android:gravity="center"
-        android:text="@string/sign_in"
-        android:textColor="#fff"
-        android:textSize="18sp" />
-
     <Button
-        android:id="@+id/buttonSignUp"
+        android:id="@+id/buttonGetStarted"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

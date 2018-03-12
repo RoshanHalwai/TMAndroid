@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -62,18 +61,12 @@ public class WorkDetails extends AppCompatActivity {
             }
         });
 
-        buttonActivateMyProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(WorkDetails.this, ProfileCreated.class));
-            }
+        buttonActivateMyProfile.setOnClickListener(view -> {
+            Intent intent = new Intent(WorkDetails.this, ProfileCreated.class);
+            intent.putExtra("UserObject", getIntent().getSerializableExtra("UserObject"));
+            startActivity(intent);
         });
 
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onBackPressed();
-            }
-        });
+        backButton.setOnClickListener(view -> onBackPressed());
     }
 }

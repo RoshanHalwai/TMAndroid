@@ -41,7 +41,11 @@ public class LanguageSelection extends AppCompatActivity {
         buttonTelugu.setTypeface(latoLight);
         buttonMalayalam.setTypeface(latoLight);
 
-        buttonEnglish.setOnClickListener(view -> startActivity(new Intent(LanguageSelection.this, UserType.class)));
+        buttonEnglish.setOnClickListener(view -> {
+            Intent intent = new Intent(LanguageSelection.this, UserType.class);
+            intent.putExtra("UserObject", getIntent().getSerializableExtra("UserObject"));
+            startActivity(intent);
+        });
 
         backButton.setOnClickListener(view -> onBackPressed());
     }

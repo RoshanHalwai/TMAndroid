@@ -17,18 +17,24 @@ import android.widget.Toast;
 public class SignIn extends AppCompatActivity {
 
     EditText editMobileNumber;
+    UserObject userObject;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
 
+        /* Creating a User Object - Serializable*/
+        userObject = new UserObject();
+
+        /*Getting ID's for all the views */
         final TextView textSignInTitle = findViewById(R.id.textSignInTitle);
         final TextView textMobileNumber = findViewById(R.id.textMobileNumber);
         editMobileNumber = findViewById(R.id.editMobileNumber);
         final Button buttonVerifyPhoneNumber = findViewById(R.id.buttonVerifyPhoneNumber);
         final ImageView backButton = findViewById(R.id.backButton);
 
+        /*Setting font for all the views */
         final Typeface latoLight = Typeface.createFromAsset(getAssets(), "fonts/Lato-Light.ttf");
         textSignInTitle.setTypeface(latoLight);
         textMobileNumber.setTypeface(latoLight);
@@ -59,12 +65,12 @@ public class SignIn extends AppCompatActivity {
             }
         });
 
-        /* Adding events to back button */
+        /* Adding events to Verify Number button */
         buttonVerifyPhoneNumber.setOnClickListener(view -> {
             if (validateMobileNumber()) {
                 Intent intent = new Intent(SignIn.this, PhoneVerification.class);
-                intent.putExtra("LoginType", "SignIn");
-                intent.putExtra("UserPhoneNumber", editMobileNumber.getText().toString());
+                userObject.setMobileNumber(editMobileNumber.getText().toString());
+                intent.putExtra("UserObject", userObject);
                 startActivity(intent);
             }
         });
