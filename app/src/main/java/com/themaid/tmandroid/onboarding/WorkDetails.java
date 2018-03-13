@@ -1,4 +1,4 @@
-package com.themaid.tmandroid;
+package com.themaid.tmandroid.onboarding;
 
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.themaid.tmandroid.R;
 
 public class WorkDetails extends AppCompatActivity {
 

@@ -4,13 +4,13 @@
     android:layout_height="match_parent"
     android:background="@android:color/black"
     android:orientation="vertical"
-    tools:context=".ProfileCreated">
+    tools:context=".onboarding.ProfileCreated">
 
     <ImageView
         android:id="@+id/tile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:alpha="0.07"
+        android:alpha="0.1"
         android:contentDescription="@string/tile_image"
         android:scaleType="fitXY"
         android:src="@drawable/concrete_tile" />
@@ -20,7 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:alpha="0.2"
+        android:alpha="0.3"
         android:contentDescription="@string/gradient_blue"
         android:scaleType="center"
         android:src="@drawable/circular_gradient_blue" />
@@ -64,4 +64,18 @@
         android:text="@string/profile_created"
         android:textColor="@color/tmDarkBlue"
         android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/buttonMyAccount"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:background="#99000000"
+        android:text="@string/my_account"
+        android:textAllCaps="false"
+        android:textColor="@color/tmLightBlue"
+        android:textSize="20sp" />
+
 </RelativeLayout>

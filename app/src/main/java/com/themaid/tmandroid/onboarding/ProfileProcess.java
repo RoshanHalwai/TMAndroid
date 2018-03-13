@@ -1,4 +1,4 @@
-package com.themaid.tmandroid;
+package com.themaid.tmandroid.onboarding;
 
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.themaid.tmandroid.R;
 
 public class ProfileProcess extends AppCompatActivity {
 

@@ -19,45 +19,49 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LanguageSelection"
+            android:name=".onboarding.LanguageSelection"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen" />
         <activity
-            android:name=".ProfileProcess"
+            android:name=".onboarding.ProfileProcess"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen" />
         <activity
-            android:name=".SetupProfileAuto"
+            android:name=".onboarding.SetupProfileAuto"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".PhoneVerification"
+            android:name=".onboarding.PhoneVerification"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".WorkDetails"
+            android:name=".onboarding.WorkDetails"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".ProfileCreated"
+            android:name=".onboarding.ProfileCreated"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen" />
         <activity
-            android:name=".UserType"
+            android:name=".onboarding.UserType"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen" />
         <activity
-            android:name=".SetupProfileManual"
+            android:name=".onboarding.SetupProfileManual"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen" />
         <activity
-            android:name=".SignIn"
+            android:name=".onboarding.GettingStarted"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"
             android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".MaidBookings"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen" />
     </application>
 
 </manifest>

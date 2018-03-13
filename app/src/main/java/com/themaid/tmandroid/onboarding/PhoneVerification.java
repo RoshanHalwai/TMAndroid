@@ -1,4 +1,4 @@
-package com.themaid.tmandroid;
+package com.themaid.tmandroid.onboarding;
 
 import android.content.Context;
 import android.content.Intent;
@@ -26,6 +26,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.themaid.tmandroid.MaidBookings;
+import com.themaid.tmandroid.R;
 
 import java.util.concurrent.TimeUnit;
 
@@ -302,11 +304,11 @@ public class PhoneVerification extends AppCompatActivity {
                             public void onDataChange(DataSnapshot dataSnapshot) {
                                 /* Check if User already exists */
                                 if (dataSnapshot.hasChild(firebaseUser.getUid())) {
-                                    String strCustomerType = dataSnapshot.child(firebaseUser.getUid()).child("customerType").getValue().toString();
+                                    String strCustomerType = dataSnapshot.child(firebaseUser.getUid()).child("userType").getValue().toString();
                                     if (strCustomerType.equals("Customer")) {
                                         // Maid Selection screen
                                     } else {
-                                        // Waiting Screen for Maid
+                                        startActivity(new Intent(PhoneVerification.this, MaidBookings.class));
                                     }
                                 }
                                 /* User is Logging in for the first time */

@@ -1,4 +1,4 @@
-package com.themaid.tmandroid;
+package com.themaid.tmandroid.onboarding;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,7 +14,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class SignIn extends AppCompatActivity {
+import com.themaid.tmandroid.R;
+
+public class GettingStarted extends AppCompatActivity {
 
     private EditText editMobileNumber;
     private UserObject userObject;
@@ -22,7 +24,7 @@ public class SignIn extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_in);
+        setContentView(R.layout.activity_getting_started);
 
         /* Creating a User Object - Serializable*/
         userObject = new UserObject();
@@ -68,7 +70,7 @@ public class SignIn extends AppCompatActivity {
         /* Adding events to Verify Number button */
         buttonVerifyPhoneNumber.setOnClickListener(view -> {
             if (validateMobileNumber()) {
-                Intent intent = new Intent(SignIn.this, PhoneVerification.class);
+                Intent intent = new Intent(GettingStarted.this, PhoneVerification.class);
                 userObject.setMobileNumber(editMobileNumber.getText().toString());
                 intent.putExtra("UserObject", userObject);
                 startActivity(intent);

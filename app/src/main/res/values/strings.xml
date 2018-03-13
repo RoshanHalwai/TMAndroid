@@ -55,6 +55,7 @@
     <string name="gallery">Gallery</string>
     <string name="camera">Camera</string>
     <string name="cancel">Cancel</string>
+    <string name="my_account">My Account</string>
 
     <string name="contact_back_office">Please reach out to our back office team with following;</string>
 
@@ -67,4 +68,12 @@
 
     <string name="sign_in_mobile_number">Sign In</string>
 
+    <string name="maid_bookings_title">Bookings</string>
+    <string name="bookings">BOOKINGS</string>
+    <string name="earnings">EARNINGS</string>
+    <string name="waiting_for_customers">Waiting for Customers</string>
+    <string name="account_summary">A/C Summary</string>
+    <string name="logout">Logout</string>
+    <string name="zero">0</string>
+    <string name="my_ratings">My Ratings</string>
 </resources>

@@ -4,13 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/black"
-    tools:context=".SetupProfileAuto">
+    tools:context=".onboarding.SetupProfileAuto">
 
     <ImageView
         android:id="@+id/tile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:alpha="0.07"
+        android:alpha="0.1"
         android:contentDescription="@string/tile_image"
         android:scaleType="fitXY"
         android:src="@drawable/concrete_tile" />
@@ -20,7 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:alpha="0.2"
+        android:alpha="0.3"
         android:contentDescription="@string/gradient_blue"
         android:scaleType="center"
         android:src="@drawable/circular_gradient_blue" />

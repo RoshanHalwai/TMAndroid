@@ -1,4 +1,4 @@
-package com.themaid.tmandroid;
+package com.themaid.tmandroid.onboarding;
 
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -13,6 +13,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.themaid.tmandroid.R;
+
 public class SetupProfileAuto extends AppCompatActivity {
 
     private static final int PICK_IMAGE = 1;
@@ -20,7 +22,6 @@ public class SetupProfileAuto extends AppCompatActivity {
 
     private UserObject userObject;
 
-    private Uri uriUserAadhar = null;
     private String strUserAadhar = null;
     private TextView textAadharUploaded;
     private Button buttonProceed;
@@ -128,6 +129,7 @@ public class SetupProfileAuto extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         switch (requestCode) {
             case PICK_IMAGE:
+                Uri uriUserAadhar;
                 if (resultCode == RESULT_OK && data != null && data.getData() != null) {
                     uriUserAadhar = data.getData();
                     strUserAadhar = uriUserAadhar.toString();
@@ -137,7 +139,7 @@ public class SetupProfileAuto extends AppCompatActivity {
                 }
                 break;
             case CAMERA_REQUEST:
-                if (resultCode == RESULT_OK && data.getExtras() != null) {
+                if (resultCode == RESULT_OK && data.getExtras() != null && data.getData() != null) {
                     uriUserAadhar = data.getData();
                     strUserAadhar = uriUserAadhar.toString();
                     displaySuccessMessage();

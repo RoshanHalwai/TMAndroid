@@ -1,10 +1,12 @@
-package com.themaid.tmandroid;
+package com.themaid.tmandroid.onboarding;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.themaid.tmandroid.R;
 
 public class SetupProfileManual extends AppCompatActivity {
 
