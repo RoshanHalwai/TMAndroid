@@ -2,7 +2,6 @@ package com.themaid.tmandroid.onboarding;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
@@ -26,8 +25,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.themaid.tmandroid.Constants;
 import com.themaid.tmandroid.MaidBookings;
 import com.themaid.tmandroid.R;
+import com.themaid.tmandroid.onboarding.pojo.UserObject;
 
 import java.util.concurrent.TimeUnit;
 
@@ -61,12 +62,12 @@ public class PhoneVerification extends AppCompatActivity {
 
         /* Getting reference to Firebase - Real time database*/
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        userPrivateInfo = database.getReference("users").child("private");
+        userPrivateInfo = database.getReference(Constants.FIREBASE_CHILD_USERS).child("private");
 
         fbAuth = FirebaseAuth.getInstance();
 
         /* Getting User Phone Number from previous activities */
-        userObject = (UserObject) getIntent().getSerializableExtra("UserObject");
+        userObject = (UserObject) getIntent().getSerializableExtra(Constants.USER_OBJECT_INTENT_KEY);
         strUserPhoneNumber = userObject.getMobileNumber();
 
         /* Getting Id's for all the views */
@@ -84,18 +85,17 @@ public class PhoneVerification extends AppCompatActivity {
         final ImageView backButton = findViewById(R.id.backButton);
 
         /* Setting font for all the views */
-        final Typeface latoLight = Typeface.createFromAsset(getAssets(), "fonts/Lato-Light.ttf");
-        editFirstOTPDigit.setTypeface(latoLight);
-        editSecondOTPDigit.setTypeface(latoLight);
-        editThirdOTPDigit.setTypeface(latoLight);
-        editFourthOTPDigit.setTypeface(latoLight);
-        editFifthOTPDigit.setTypeface(latoLight);
-        editSixthOTPDigit.setTypeface(latoLight);
-        buttonVerifyOTP.setTypeface(latoLight);
-        buttonResendOTP.setTypeface(latoLight);
-        textPhoneVerificationTitle.setTypeface(latoLight);
-        textPhoneVerification.setTypeface(latoLight);
-        textIncorrectOTP.setTypeface(latoLight);
+        editFirstOTPDigit.setTypeface(Constants.setLatoLightFont(this));
+        editSecondOTPDigit.setTypeface(Constants.setLatoLightFont(this));
+        editThirdOTPDigit.setTypeface(Constants.setLatoLightFont(this));
+        editFourthOTPDigit.setTypeface(Constants.setLatoLightFont(this));
+        editFifthOTPDigit.setTypeface(Constants.setLatoLightFont(this));
+        editSixthOTPDigit.setTypeface(Constants.setLatoLightFont(this));
+        buttonVerifyOTP.setTypeface(Constants.setLatoLightFont(this));
+        buttonResendOTP.setTypeface(Constants.setLatoLightFont(this));
+        textPhoneVerificationTitle.setTypeface(Constants.setLatoLightFont(this));
+        textPhoneVerification.setTypeface(Constants.setLatoLightFont(this));
+        textIncorrectOTP.setTypeface(Constants.setLatoLightFont(this));
 
         editFirstOTPDigit.addTextChangedListener(new TextWatcher() {
             @Override
@@ -305,7 +305,7 @@ public class PhoneVerification extends AppCompatActivity {
                                 /* Check if User already exists */
                                 if (dataSnapshot.hasChild(firebaseUser.getUid())) {
                                     String strCustomerType = dataSnapshot.child(firebaseUser.getUid()).child("userType").getValue().toString();
-                                    if (strCustomerType.equals("Customer")) {
+                                    if (strCustomerType.equals(Constants.USER_TYPE_CUSTOMER)) {
                                         // Maid Selection screen
                                     } else {
                                         startActivity(new Intent(PhoneVerification.this, MaidBookings.class));
@@ -315,7 +315,7 @@ public class PhoneVerification extends AppCompatActivity {
                                 else {
                                     Intent intent = new Intent(PhoneVerification.this, LanguageSelection.class);
                                     userObject.setUID(firebaseUser.getUid());
-                                    intent.putExtra("UserObject", userObject);
+                                    intent.putExtra(Constants.USER_OBJECT_INTENT_KEY, userObject);
                                     startActivity(intent);
                                 }
                             }

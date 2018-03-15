@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="@android:color/black"
     android:orientation="vertical"
-    tools:context=".onboarding.ProfileCreated">
+    tools:context=".onboarding.maid.ProfileCreated">
 
     <ImageView
         android:id="@+id/tile"

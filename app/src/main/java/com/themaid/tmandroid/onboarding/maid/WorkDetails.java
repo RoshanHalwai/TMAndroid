@@ -1,7 +1,6 @@
-package com.themaid.tmandroid.onboarding;
+package com.themaid.tmandroid.onboarding.maid;
 
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
@@ -11,6 +10,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.themaid.tmandroid.Constants;
 import com.themaid.tmandroid.R;
 
 public class WorkDetails extends AppCompatActivity {
@@ -32,17 +32,16 @@ public class WorkDetails extends AppCompatActivity {
         final Button buttonActivateMyProfile = findViewById(R.id.buttonActivateMyProfile);
         final ImageView backButton = findViewById(R.id.backButton);
 
-        final Typeface latoLight = Typeface.createFromAsset(getAssets(), "fonts/Lato-Light.ttf");
-        textWorkDetailsTitle.setTypeface(latoLight);
-        textWorkDetails.setTypeface(latoLight);
-        textMobileNumber.setTypeface(latoLight);
-        textFullName.setTypeface(latoLight);
-        textAddress.setTypeface(latoLight);
-        editMobileNumber.setTypeface(latoLight);
-        editFullName.setTypeface(latoLight);
-        editAddress.setTypeface(latoLight);
-        editAddressLine2.setTypeface(latoLight);
-        buttonActivateMyProfile.setTypeface(latoLight);
+        textWorkDetailsTitle.setTypeface(Constants.setLatoLightFont(this));
+        textWorkDetails.setTypeface(Constants.setLatoLightFont(this));
+        textMobileNumber.setTypeface(Constants.setLatoLightFont(this));
+        textFullName.setTypeface(Constants.setLatoLightFont(this));
+        textAddress.setTypeface(Constants.setLatoLightFont(this));
+        editMobileNumber.setTypeface(Constants.setLatoLightFont(this));
+        editFullName.setTypeface(Constants.setLatoLightFont(this));
+        editAddress.setTypeface(Constants.setLatoLightFont(this));
+        editAddressLine2.setTypeface(Constants.setLatoLightFont(this));
+        buttonActivateMyProfile.setTypeface(Constants.setLatoLightFont(this));
 
         editMobileNumber.addTextChangedListener(new TextWatcher() {
             @Override
@@ -65,7 +64,7 @@ public class WorkDetails extends AppCompatActivity {
 
         buttonActivateMyProfile.setOnClickListener(view -> {
             Intent intent = new Intent(WorkDetails.this, ProfileCreated.class);
-            intent.putExtra("UserObject", getIntent().getSerializableExtra("UserObject"));
+            intent.putExtra(Constants.USER_OBJECT_INTENT_KEY, getIntent().getSerializableExtra(Constants.USER_OBJECT_INTENT_KEY));
             startActivity(intent);
         });
 

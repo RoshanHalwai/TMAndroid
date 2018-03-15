@@ -1,14 +1,15 @@
-package com.themaid.tmandroid.onboarding;
+package com.themaid.tmandroid.onboarding.maid;
 
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.themaid.tmandroid.Constants;
 import com.themaid.tmandroid.R;
+import com.themaid.tmandroid.onboarding.SetupProfileAuto;
 
 public class ProfileProcess extends AppCompatActivity {
 
@@ -23,17 +24,16 @@ public class ProfileProcess extends AppCompatActivity {
         final Button buttonAutomatic = findViewById(R.id.buttonAutomatic);
         final ImageView backButton = findViewById(R.id.backButton);
 
-        final Typeface latoLight = Typeface.createFromAsset(getAssets(), "fonts/Lato-Light.ttf");
-        textProfileProcessTitle.setTypeface(latoLight);
-        textSetupProfile.setTypeface(latoLight);
-        buttonManual.setTypeface(latoLight);
-        buttonAutomatic.setTypeface(latoLight);
+        textProfileProcessTitle.setTypeface(Constants.setLatoLightFont(this));
+        textSetupProfile.setTypeface(Constants.setLatoLightFont(this));
+        buttonManual.setTypeface(Constants.setLatoLightFont(this));
+        buttonAutomatic.setTypeface(Constants.setLatoLightFont(this));
 
         buttonManual.setOnClickListener(view -> startActivity(new Intent(ProfileProcess.this, SetupProfileManual.class)));
 
         buttonAutomatic.setOnClickListener(view -> {
             Intent intent = new Intent(ProfileProcess.this, SetupProfileAuto.class);
-            intent.putExtra("UserObject", getIntent().getSerializableExtra("UserObject"));
+            intent.putExtra(Constants.USER_OBJECT_INTENT_KEY, getIntent().getSerializableExtra(Constants.USER_OBJECT_INTENT_KEY));
             startActivity(intent);
         });
 

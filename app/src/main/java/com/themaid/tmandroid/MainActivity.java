@@ -1,7 +1,6 @@
 package com.themaid.tmandroid;
 
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
@@ -30,16 +29,16 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(MainActivity.this, MaidBookings.class));
         } else {
             setContentView(R.layout.activity_main);
+
             /*Getting ID's for all the views */
             final TextView textAppTitle = findViewById(R.id.textAppTitle);
             final Button buttonGetStarted = findViewById(R.id.buttonGetStarted);
 
-        /*Setting font for all the views */
-            final Typeface latoLight = Typeface.createFromAsset(getAssets(), "fonts/Lato-Light.ttf");
-            textAppTitle.setTypeface(latoLight);
-            buttonGetStarted.setTypeface(latoLight);
+            /*Setting font for all the views */
+            textAppTitle.setTypeface(Constants.setLatoLightFont(this));
+            buttonGetStarted.setTypeface(Constants.setLatoLightFont(this));
 
-        /* Adding events to Get Started Button */
+            /* Adding events to Get Started Button */
             buttonGetStarted.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, GettingStarted.class)));
         }
     }
@@ -51,4 +50,5 @@ public class MainActivity extends AppCompatActivity {
         a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(a);
     }
+
 }

@@ -1,9 +1,8 @@
-package com.themaid.tmandroid.onboarding;
+package com.themaid.tmandroid.onboarding.maid;
 
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -17,8 +16,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.themaid.tmandroid.Constants;
 import com.themaid.tmandroid.MaidBookings;
 import com.themaid.tmandroid.R;
+import com.themaid.tmandroid.onboarding.pojo.UserObject;
 
 public class ProfileCreated extends AppCompatActivity {
 
@@ -38,23 +39,22 @@ public class ProfileCreated extends AppCompatActivity {
 
         /* Getting reference to Firebase - Real time database*/
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        allUsers = database.getReference("users").child("all");
-        userPrivateInfo = database.getReference("users").child("private");
+        allUsers = database.getReference(Constants.FIREBASE_CHILD_USERS).child(Constants.FIREBASE_CHILD_ALL);
+        userPrivateInfo = database.getReference(Constants.FIREBASE_CHILD_USERS).child(Constants.FIREBASE_CHILD_PRIVATE);
 
         /* Getting reference to Firebase - Storage */
-        storageReference = FirebaseStorage.getInstance().getReference("private").child("users");
+        storageReference = FirebaseStorage.getInstance().getReference(Constants.FIREBASE_CHILD_PRIVATE).child(Constants.FIREBASE_CHILD_USERS);
 
         final TextView textProfileCreatedTitle = findViewById(R.id.textProfileCreatedTitle);
         final TextView textProfileCreated = findViewById(R.id.textProfileCreated);
         final Button buttonMyAccount = findViewById(R.id.buttonMyAccount);
         final ImageView backButton = findViewById(R.id.backButton);
 
-        final Typeface latoLight = Typeface.createFromAsset(getAssets(), "fonts/Lato-Light.ttf");
-        textProfileCreatedTitle.setTypeface(latoLight);
-        textProfileCreated.setTypeface(latoLight);
-        buttonMyAccount.setTypeface(latoLight);
+        textProfileCreatedTitle.setTypeface(Constants.setLatoLightFont(this));
+        textProfileCreated.setTypeface(Constants.setLatoLightFont(this));
+        buttonMyAccount.setTypeface(Constants.setLatoLightFont(this));
 
-        userObject = (UserObject) getIntent().getSerializableExtra("UserObject");
+        userObject = (UserObject) getIntent().getSerializableExtra(Constants.USER_OBJECT_INTENT_KEY);
 
         buttonMyAccount.setOnClickListener(view -> startActivity(new Intent(ProfileCreated.this, MaidBookings.class)));
 
@@ -65,16 +65,17 @@ public class ProfileCreated extends AppCompatActivity {
 
     private void storeUserInformation() {
         UID = userObject.getUID();
-        if (userObject.getUserType().equals("Maid")) {
+        if (userObject.getUserType().equals(Constants.USER_TYPE_MAID)) {
             uriUserAadhar = Uri.parse(userObject.getUriUserAadhar());
-            allUsers.child("maids").child(userObject.getMobileNumber()).setValue(UID);
+            allUsers.child(Constants.FIREBASE_CHILD_MAIDS).child(userObject.getMobileNumber()).setValue(UID);
+            userPrivateInfo.child(UID).child(Constants.FIREBASE_CHILD_SERVICES).setValue(userObject.getMaidServiceObject());
             uploadAadharCard();
         } else {
-            allUsers.child("customers").child(userObject.getMobileNumber()).setValue(UID);
+            allUsers.child(Constants.FIREBASE_CHILD_CUSTOMERS).child(userObject.getMobileNumber()).setValue(UID);
         }
-        userPrivateInfo.child(UID).child("mobileNumber").setValue(userObject.getMobileNumber());
-        userPrivateInfo.child(UID).child("fullName").setValue(userObject.getFullName());
-        userPrivateInfo.child(UID).child("userType").setValue(userObject.getUserType());
+        userPrivateInfo.child(UID).child(Constants.FIREBASE_CHILD_MOBILE_NUMBER).setValue(userObject.getMobileNumber());
+        userPrivateInfo.child(UID).child(Constants.FIREBASE_CHILD_FULL_NAME).setValue(userObject.getFullName());
+        userPrivateInfo.child(UID).child(Constants.FIREBASE_CHILD_USER_TYPE).setValue(userObject.getUserType());
     }
 
     private void uploadAadharCard() {
@@ -97,7 +98,9 @@ public class ProfileCreated extends AppCompatActivity {
                         //displaying success toast
                         Toast.makeText(getApplicationContext(), "File Uploaded ", Toast.LENGTH_LONG).show();
 
-                        userPrivateInfo.child(UID).child("aadharCard").setValue(taskSnapshot.getDownloadUrl().toString());
+                        if (taskSnapshot.getDownloadUrl() != null) {
+                            userPrivateInfo.child(UID).child(Constants.FIREBASE_CHILD_AADHAR_CARD).setValue(taskSnapshot.getDownloadUrl().toString());
+                        }
                     })
                     .addOnFailureListener(exception -> {
                         progressDialog.dismiss();

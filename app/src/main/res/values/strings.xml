@@ -36,13 +36,14 @@
     <string name="aadhar_card_uploaded_failed">Aadhar Card upload failed</string>
 
     <string name="phone_verification">Phone Verification</string>
-    <string name="add_work_details">Add Work Details</string>
+    <string name="add_service_details">Add Service Details</string>
     <string name="enter_verification_code">We need to verify your account. Please enter the 6 digit verification
     code from text message.</string>
     <string name="verify_otp">Verify OTP</string>
     <string name="resend_otp">Resend OTP</string>
     <string name="incorrect_otp">You have entered an incorrect OTP</string>
 
+    <string name="work_details_title">Work Details</string>
     <string name="verify_work_details">Please enter the details of your work.
         We will verify these details before activating your profile.</string>
     <string name="resident_mobile_number">Resident Mobile Number</string>
@@ -76,4 +77,17 @@
     <string name="logout">Logout</string>
     <string name="zero">0</string>
     <string name="my_ratings">My Ratings</string>
+
+    <string name="maid_services_title">Services</string>
+    <string name="vegetarian">Vegetarian</string>
+    <string name="non_vegetarian">Non - Vegetarian</string>
+    <string name="cooking">COOKING</string>
+    <string name="household">HOUSEHOLD</string>
+    <string name="select_services_text">Please select the services that you can provide to customers</string>
+    <string name="house_cleaning">House Cleaning</string>
+    <string name="utensils_washing">Utensils Washing</string>
+    <string name="clothes_washing">Clothes Washing</string>
+    <string name="dusting">Dusting</string>
+    <string name="deep_cleaning">Deep Cleaning</string>
+    <string name="add_work_details">Add Work Details</string>
 </resources>

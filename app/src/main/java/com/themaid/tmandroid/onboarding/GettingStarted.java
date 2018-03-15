@@ -2,7 +2,6 @@ package com.themaid.tmandroid.onboarding;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
@@ -14,7 +13,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.themaid.tmandroid.Constants;
 import com.themaid.tmandroid.R;
+import com.themaid.tmandroid.onboarding.pojo.UserObject;
 
 public class GettingStarted extends AppCompatActivity {
 
@@ -37,11 +38,10 @@ public class GettingStarted extends AppCompatActivity {
         final ImageView backButton = findViewById(R.id.backButton);
 
         /*Setting font for all the views */
-        final Typeface latoLight = Typeface.createFromAsset(getAssets(), "fonts/Lato-Light.ttf");
-        textSignInTitle.setTypeface(latoLight);
-        textMobileNumber.setTypeface(latoLight);
-        editMobileNumber.setTypeface(latoLight);
-        buttonVerifyPhoneNumber.setTypeface(latoLight);
+        textSignInTitle.setTypeface(Constants.setLatoLightFont(this));
+        textMobileNumber.setTypeface(Constants.setLatoLightFont(this));
+        editMobileNumber.setTypeface(Constants.setLatoLightFont(this));
+        buttonVerifyPhoneNumber.setTypeface(Constants.setLatoLightFont(this));
 
         /* Adding events to Mobile Number edit text */
         editMobileNumber.addTextChangedListener(new TextWatcher() {
@@ -72,7 +72,7 @@ public class GettingStarted extends AppCompatActivity {
             if (validateMobileNumber()) {
                 Intent intent = new Intent(GettingStarted.this, PhoneVerification.class);
                 userObject.setMobileNumber(editMobileNumber.getText().toString());
-                intent.putExtra("UserObject", userObject);
+                intent.putExtra(Constants.USER_OBJECT_INTENT_KEY, userObject);
                 startActivity(intent);
             }
         });

@@ -33,17 +33,16 @@ public class MaidBookings extends AppCompatActivity {
         final com.wang.avi.AVLoadingIndicatorView animationWaitingForCustomers = findViewById(R.id.animationWaitingForCustomers);
 
         /* Setting font for all the views */
-        final Typeface latoLight = Typeface.createFromAsset(getAssets(), "fonts/Lato-Light.ttf");
         final Typeface latoLightItalic = Typeface.createFromAsset(getAssets(), "fonts/Lato-LightItalic.ttf");
-        textBookingTitle.setTypeface(latoLight);
-        textTodayDate.setTypeface(latoLight);
-        textNumberOfBookings.setTypeface(latoLight);
-        textBookings.setTypeface(latoLight);
-        textTodayEarnings.setTypeface(latoLight);
-        textEarnings.setTypeface(latoLight);
+        textBookingTitle.setTypeface(Constants.setLatoLightFont(this));
+        textTodayDate.setTypeface(Constants.setLatoLightFont(this));
+        textNumberOfBookings.setTypeface(Constants.setLatoLightFont(this));
+        textBookings.setTypeface(Constants.setLatoLightFont(this));
+        textTodayEarnings.setTypeface(Constants.setLatoLightFont(this));
+        textEarnings.setTypeface(Constants.setLatoLightFont(this));
         textWaitingForCustomers.setTypeface(latoLightItalic);
-        buttonAccountSummary.setTypeface(latoLight);
-        buttonLogout.setTypeface(latoLight);
+        buttonAccountSummary.setTypeface(Constants.setLatoLightFont(this));
+        buttonLogout.setTypeface(Constants.setLatoLightFont(this));
 
         /* Show Waiting Animation*/
         animationWaitingForCustomers.smoothToShow();

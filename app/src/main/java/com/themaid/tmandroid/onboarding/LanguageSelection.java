@@ -1,13 +1,13 @@
 package com.themaid.tmandroid.onboarding;
 
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.themaid.tmandroid.Constants;
 import com.themaid.tmandroid.R;
 
 public class LanguageSelection extends AppCompatActivity {
@@ -30,22 +30,21 @@ public class LanguageSelection extends AppCompatActivity {
         final Button buttonMalayalam = findViewById(R.id.buttonMalayalam);
         final ImageView backButton = findViewById(R.id.backButton);
 
-        final Typeface latoLight = Typeface.createFromAsset(getAssets(), "fonts/Lato-Light.ttf");
-        textSelectLanguageTitle.setTypeface(latoLight);
-        textSelectLanguage.setTypeface(latoLight);
-        buttonHindi.setTypeface(latoLight);
-        buttonEnglish.setTypeface(latoLight);
-        buttonMarathi.setTypeface(latoLight);
-        buttonTamil.setTypeface(latoLight);
-        buttonKannada.setTypeface(latoLight);
-        buttonBengali.setTypeface(latoLight);
-        buttonGujarati.setTypeface(latoLight);
-        buttonTelugu.setTypeface(latoLight);
-        buttonMalayalam.setTypeface(latoLight);
+        textSelectLanguageTitle.setTypeface(Constants.setLatoLightFont(this));
+        textSelectLanguage.setTypeface(Constants.setLatoLightFont(this));
+        buttonHindi.setTypeface(Constants.setLatoLightFont(this));
+        buttonEnglish.setTypeface(Constants.setLatoLightFont(this));
+        buttonMarathi.setTypeface(Constants.setLatoLightFont(this));
+        buttonTamil.setTypeface(Constants.setLatoLightFont(this));
+        buttonKannada.setTypeface(Constants.setLatoLightFont(this));
+        buttonBengali.setTypeface(Constants.setLatoLightFont(this));
+        buttonGujarati.setTypeface(Constants.setLatoLightFont(this));
+        buttonTelugu.setTypeface(Constants.setLatoLightFont(this));
+        buttonMalayalam.setTypeface(Constants.setLatoLightFont(this));
 
         buttonEnglish.setOnClickListener(view -> {
             Intent intent = new Intent(LanguageSelection.this, UserType.class);
-            intent.putExtra("UserObject", getIntent().getSerializableExtra("UserObject"));
+            intent.putExtra(Constants.USER_OBJECT_INTENT_KEY, getIntent().getSerializableExtra(Constants.USER_OBJECT_INTENT_KEY));
             startActivity(intent);
         });
 

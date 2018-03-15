@@ -74,7 +74,7 @@
         android:inputType="number"
         android:maxLength="10"
         android:textColor="@color/tmDarkBlue"
-        android:textSize="22sp">
+        android:textSize="24sp">
 
         <requestFocus />
     </EditText>

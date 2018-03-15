@@ -1,11 +1,11 @@
-package com.themaid.tmandroid.onboarding;
+package com.themaid.tmandroid.onboarding.maid;
 
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.themaid.tmandroid.Constants;
 import com.themaid.tmandroid.R;
 
 public class SetupProfileManual extends AppCompatActivity {
@@ -22,13 +22,11 @@ public class SetupProfileManual extends AppCompatActivity {
         final TextView textPhoneNumber = findViewById(R.id.textPhoneNumber);
         final ImageView backButton = findViewById(R.id.backButton);
 
-        final Typeface latoLight = Typeface.createFromAsset(getAssets(), "fonts/Lato-Light.ttf");
-        final Typeface latoLightItalic = Typeface.createFromAsset(getAssets(), "fonts/Lato-LightItalic.ttf");
-        textSetupProfileTitle.setTypeface(latoLight);
-        textContactBackOffice.setTypeface(latoLightItalic);
-        textAadharCard.setTypeface(latoLightItalic);
-        textWorkPlace.setTypeface(latoLightItalic);
-        textPhoneNumber.setTypeface(latoLightItalic);
+        textSetupProfileTitle.setTypeface(Constants.setLatoLightFont(this));
+        textContactBackOffice.setTypeface(Constants.setLatoLightItalicFont(this));
+        textAadharCard.setTypeface(Constants.setLatoLightItalicFont(this));
+        textWorkPlace.setTypeface(Constants.setLatoLightItalicFont(this));
+        textPhoneNumber.setTypeface(Constants.setLatoLightItalicFont(this));
 
         backButton.setOnClickListener(view -> onBackPressed());
     }
