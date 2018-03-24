@@ -76,6 +76,7 @@
     <string name="account_summary">A/C Summary</string>
     <string name="logout">Logout</string>
     <string name="zero">0</string>
+    <string name="navigate">Navigate</string>
     <string name="my_ratings">My Ratings</string>
 
     <string name="maid_services_title">Services</string>

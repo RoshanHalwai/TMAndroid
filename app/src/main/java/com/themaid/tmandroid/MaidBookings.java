@@ -2,18 +2,23 @@ package com.themaid.tmandroid;
 
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.themaid.tmandroid.onboarding.pojo.CustomerRequest;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
 public class MaidBookings extends AppCompatActivity {
+
+    CustomerRequest customerRequest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +37,10 @@ public class MaidBookings extends AppCompatActivity {
         final Button buttonLogout = findViewById(R.id.buttonLogout);
         final com.wang.avi.AVLoadingIndicatorView animationWaitingForCustomers = findViewById(R.id.animationWaitingForCustomers);
 
+        final TextView textCustomerName = findViewById(R.id.textCustomerName);
+        final TextView textCustomerPhone = findViewById(R.id.textCustomerPhone);
+        final Button buttonNavigate = findViewById(R.id.buttonNavigate);
+
         /* Setting font for all the views */
         final Typeface latoLightItalic = Typeface.createFromAsset(getAssets(), "fonts/Lato-LightItalic.ttf");
         textBookingTitle.setTypeface(Constants.setLatoLightFont(this));
@@ -44,16 +53,44 @@ public class MaidBookings extends AppCompatActivity {
         buttonAccountSummary.setTypeface(Constants.setLatoLightFont(this));
         buttonLogout.setTypeface(Constants.setLatoLightFont(this));
 
-        /* Show Waiting Animation*/
-        animationWaitingForCustomers.smoothToShow();
+        textCustomerName.setTypeface(Constants.setLatoLightFont(this));
+        textCustomerPhone.setTypeface(Constants.setLatoLightFont(this));
+        buttonNavigate.setTypeface(Constants.setLatoLightFont(this));
+
+        customerRequest = (CustomerRequest) getIntent().getSerializableExtra("CustomerRequest");
+        if (customerRequest == null) {
+            /* Show Waiting Animation*/
+            textCustomerName.setVisibility(View.GONE);
+            textCustomerPhone.setVisibility(View.GONE);
+            buttonNavigate.setVisibility(View.GONE);
+            textWaitingForCustomers.setVisibility(View.VISIBLE);
+            animationWaitingForCustomers.setVisibility(View.VISIBLE);
+            animationWaitingForCustomers.smoothToShow();
+        } else {
+            textCustomerName.setText(customerRequest.getCustomerName());
+            textCustomerPhone.setText(customerRequest.getCustomerPhone());
+            textCustomerName.setVisibility(View.VISIBLE);
+            textCustomerPhone.setVisibility(View.VISIBLE);
+            buttonNavigate.setVisibility(View.VISIBLE);
+            textWaitingForCustomers.setVisibility(View.GONE);
+            animationWaitingForCustomers.setVisibility(View.GONE);
+        }
 
         /* Set today's date */
         textTodayDate.setText(getTodayDate());
+
+        buttonNavigate.setOnClickListener(view -> {
+            Uri gmmIntentUri = Uri.parse("google.navigation:q=" + customerRequest.getCustomerAddress() + "&avoid=tf");
+            Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+            mapIntent.setPackage("com.google.android.apps.maps");
+            startActivity(mapIntent);
+        });
 
         buttonLogout.setOnClickListener(view -> {
             FirebaseAuth.getInstance().signOut();
             startActivity(new Intent(MaidBookings.this, MainActivity.class));
         });
+
     }
 
     private String getTodayDate() {

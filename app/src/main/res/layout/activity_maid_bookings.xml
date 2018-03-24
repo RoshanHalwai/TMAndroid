@@ -174,7 +174,42 @@
             android:gravity="center"
             android:text="@string/waiting_for_customers"
             android:textColor="@android:color/white"
-            android:textSize="26sp" />
+            android:textSize="26sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/textCustomerName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Roshan Halwai"
+            android:textColor="@android:color/white"
+            android:textSize="22sp"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/textCustomerPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textCustomerName"
+            android:gravity="center"
+            android:text="+91 8883458718"
+            android:textColor="@android:color/white"
+            android:textSize="22sp"
+            android:visibility="visible" />
+
+        <Button
+            android:id="@+id/buttonNavigate"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textCustomerPhone"
+            android:layout_margin="5dp"
+            android:background="#99000000"
+            android:text="@string/navigate"
+            android:textAllCaps="false"
+            android:textColor="@color/tmLightBlue"
+            android:textSize="20sp" />
 
         <com.wang.avi.AVLoadingIndicatorView
             android:id="@+id/animationWaitingForCustomers"
@@ -182,6 +217,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/textWaitingForCustomers"
             android:layout_centerHorizontal="true"
+            android:visibility="gone"
             app:indicatorName="BallPulseIndicator" />
 
     </RelativeLayout>
