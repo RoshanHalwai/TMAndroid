@@ -3,9 +3,9 @@ package com.themaid.tmandroid.onboarding.pojo;
 import java.io.Serializable;
 
 /**
- * CityXcape
+ * TheMaid
  * Created by Roshan Halwai on 3/25/2018.
- * Copyright © 2016 CityXcape Inc. All rights reserved.
+ * Copyright © 2016 TheMaid Inc. All rights reserved.
  */
 
 public class CustomerRequest implements Serializable {

@@ -1,0 +1,13 @@
+{
+	"to":
+	"/topics/SEATTLE_WEATHER",
+	"data": {
+		"customerName": "Roshan Halwai",
+		"customerPhone": "+91 8883234243",
+		"customerAddress": "12.969265,77.6573328",
+		"serviceRequested": "Dusting",
+		"title": "New Customer Request",
+		"text": "Customer has requested for service",
+		"sound": "default"
+	}
+}

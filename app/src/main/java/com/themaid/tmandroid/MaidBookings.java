@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.themaid.tmandroid.onboarding.pojo.CustomerRequest;
 
 import java.text.SimpleDateFormat;
@@ -24,6 +25,8 @@ public class MaidBookings extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maid_bookings);
+
+        FirebaseMessaging.getInstance().subscribeToTopic("SEATTLE_WEATHER");
 
         /* Getting Id for all the views */
         final TextView textBookingTitle = findViewById(R.id.textBookingTitle);

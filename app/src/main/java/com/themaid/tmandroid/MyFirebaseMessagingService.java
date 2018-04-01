@@ -15,9 +15,9 @@ import com.themaid.tmandroid.onboarding.pojo.CustomerRequest;
 import java.util.Map;
 
 /**
- * CityXcape
+ * TheMaid
  * Created by Roshan Halwai on 3/24/2018.
- * Copyright © 2016 CityXcape Inc. All rights reserved.
+ * Copyright © 2016 TheMaid Inc. All rights reserved.
  */
 
 public class MyFirebaseMessagingService extends com.google.firebase.messaging.FirebaseMessagingService {
@@ -26,17 +26,15 @@ public class MyFirebaseMessagingService extends com.google.firebase.messaging.Fi
 
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
-        if (remoteMessage.getNotification() != null) {
-            String title = remoteMessage.getNotification().getTitle();
-            String message = remoteMessage.getNotification().getBody();
-
+        if (remoteMessage.getData() != null) {
             Map<String, String> data = remoteMessage.getData();
-            Object[] keys = data.values().toArray();
+            String title = data.get("title");
+            String message = data.get("text");
             CustomerRequest customerRequest = new CustomerRequest(
-                    keys[0].toString(),
-                    keys[1].toString(),
-                    keys[2].toString(),
-                    keys[3].toString()
+                    data.get("customerName"),
+                    data.get("customerPhone"),
+                    data.get("customerAddress"),
+                    data.get("serviceRequested")
             );
             sendNotification(title, message, customerRequest);
         }
@@ -61,7 +59,7 @@ public class MyFirebaseMessagingService extends com.google.firebase.messaging.Fi
         if (notificationManager != null) {
             notificationManager.notify(0, notificationBuilder.build());
         }
-    }
 
+    }
 
 }
