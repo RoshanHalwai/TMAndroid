@@ -47,7 +47,8 @@ public class MyFirebaseMessagingService extends com.google.firebase.messaging.Fi
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT);
 
         Uri uri = RingtoneManager.getDefaultUri(Notification.DEFAULT_SOUND);
-        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this)
+        String NOTIFICATION_CHANNEL_ID = "my_channel_id_01";
+        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this, NOTIFICATION_CHANNEL_ID)
                 .setSmallIcon(R.mipmap.ic_launcher)
                 .setContentTitle(title)
                 .setContentText(message)
