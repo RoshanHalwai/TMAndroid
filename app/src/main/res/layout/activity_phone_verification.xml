@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="@android:color/black"
     android:orientation="vertical"
-    tools:context=".onboarding.PhoneVerification">
+    tools:context=".onboarding.common.PhoneVerification">
 
     <ImageView
         android:id="@+id/tile"
@@ -84,7 +84,8 @@
             android:inputType="number"
             android:maxLength="1"
             android:textColor="@color/tmDarkBlue"
-            android:textSize="24sp">
+            android:textSize="24sp"
+            tools:ignore="LabelFor">
 
             <requestFocus />
         </EditText>
@@ -99,7 +100,8 @@
             android:inputType="number"
             android:maxLength="1"
             android:textColor="@color/tmDarkBlue"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            tools:ignore="LabelFor" />
 
         <EditText
             android:id="@+id/editThirdOTPDigit"
@@ -111,7 +113,8 @@
             android:inputType="number"
             android:maxLength="1"
             android:textColor="@color/tmDarkBlue"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            tools:ignore="LabelFor" />
 
         <EditText
             android:id="@+id/editFourthOTPDigit"
@@ -123,7 +126,8 @@
             android:inputType="number"
             android:maxLength="1"
             android:textColor="@color/tmDarkBlue"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            tools:ignore="LabelFor" />
 
         <EditText
             android:id="@+id/editFifthOTPDigit"
@@ -135,7 +139,8 @@
             android:inputType="number"
             android:maxLength="1"
             android:textColor="@color/tmDarkBlue"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            tools:ignore="LabelFor" />
 
         <EditText
             android:id="@+id/editSixthOTPDigit"
@@ -147,7 +152,8 @@
             android:inputType="number"
             android:maxLength="1"
             android:textColor="@color/tmDarkBlue"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            tools:ignore="LabelFor" />
     </LinearLayout>
 
     <TextView

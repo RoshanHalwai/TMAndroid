@@ -182,7 +182,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Roshan Halwai"
             android:textColor="@android:color/white"
             android:textSize="22sp"
             android:visibility="visible" />
@@ -193,7 +192,6 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/textCustomerName"
             android:gravity="center"
-            android:text="+91 8883458718"
             android:textColor="@android:color/white"
             android:textSize="22sp"
             android:visibility="visible" />

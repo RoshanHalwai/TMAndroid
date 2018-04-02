@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.themaid.tmandroid.Constants;
 import com.themaid.tmandroid.R;
+import com.themaid.tmandroid.onboarding.common.ProfileCreated;
 
 public class WorkDetails extends AppCompatActivity {
 

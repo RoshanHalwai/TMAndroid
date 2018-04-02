@@ -23,6 +23,8 @@ public class Constants {
     /* User Types */
     public static final String USER_TYPE_CUSTOMER = "Customer";
     public static final String USER_TYPE_MAID = "Maid";
+    /*Google package*/
+    public static final String GOOGLE_MAPS_PACKAGE = "com.google.android.apps.maps";
 
     /* Font Types */
     public static Typeface setLatoLightFont(Context c) {
@@ -32,5 +34,4 @@ public class Constants {
     public static Typeface setLatoLightItalicFont(Context c) {
         return Typeface.createFromAsset(c.getAssets(), "fonts/Lato-LightItalic.ttf");
     }
-
 }

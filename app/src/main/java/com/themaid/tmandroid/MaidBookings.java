@@ -1,7 +1,6 @@
 package com.themaid.tmandroid;
 
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -19,13 +18,14 @@ import java.util.Date;
 
 public class MaidBookings extends AppCompatActivity {
 
-    CustomerRequest customerRequest;
+    private CustomerRequest customerRequest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maid_bookings);
 
+        //TODO: Check logic for this line of code and adjust accordingly
         FirebaseMessaging.getInstance().subscribeToTopic("SEATTLE_WEATHER");
 
         /* Getting Id for all the views */
@@ -45,14 +45,13 @@ public class MaidBookings extends AppCompatActivity {
         final Button buttonNavigate = findViewById(R.id.buttonNavigate);
 
         /* Setting font for all the views */
-        final Typeface latoLightItalic = Typeface.createFromAsset(getAssets(), "fonts/Lato-LightItalic.ttf");
         textBookingTitle.setTypeface(Constants.setLatoLightFont(this));
         textTodayDate.setTypeface(Constants.setLatoLightFont(this));
         textNumberOfBookings.setTypeface(Constants.setLatoLightFont(this));
         textBookings.setTypeface(Constants.setLatoLightFont(this));
         textTodayEarnings.setTypeface(Constants.setLatoLightFont(this));
         textEarnings.setTypeface(Constants.setLatoLightFont(this));
-        textWaitingForCustomers.setTypeface(latoLightItalic);
+        textWaitingForCustomers.setTypeface(Constants.setLatoLightItalicFont(this));
         buttonAccountSummary.setTypeface(Constants.setLatoLightFont(this));
         buttonLogout.setTypeface(Constants.setLatoLightFont(this));
 
@@ -61,6 +60,10 @@ public class MaidBookings extends AppCompatActivity {
         buttonNavigate.setTypeface(Constants.setLatoLightFont(this));
 
         customerRequest = (CustomerRequest) getIntent().getSerializableExtra("CustomerRequest");
+
+        /* If there are no customer request at any point of time we show waiting animation
+         *  Else we hide waiting animation and show the name, number and navigation button to navigate
+         *  to customers address*/
         if (customerRequest == null) {
             /* Show Waiting Animation*/
             textCustomerName.setVisibility(View.GONE);
@@ -85,7 +88,7 @@ public class MaidBookings extends AppCompatActivity {
         buttonNavigate.setOnClickListener(view -> {
             Uri gmmIntentUri = Uri.parse("google.navigation:q=" + customerRequest.getCustomerAddress() + "&avoid=tf");
             Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
-            mapIntent.setPackage("com.google.android.apps.maps");
+            mapIntent.setPackage(Constants.GOOGLE_MAPS_PACKAGE);
             startActivity(mapIntent);
         });
 

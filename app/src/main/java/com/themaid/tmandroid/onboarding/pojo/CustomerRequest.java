@@ -10,10 +10,10 @@ import java.io.Serializable;
 
 public class CustomerRequest implements Serializable {
 
-    private String customerName;
-    private String customerAddress;
-    private String customerPhone;
-    private String serviceRequested;
+    private final String customerName;
+    private final String customerAddress;
+    private final String customerPhone;
+    private final String serviceRequested;
 
     public CustomerRequest(String customerName, String customerPhone, String customerAddress, String serviceRequested) {
         this.customerName = customerName;

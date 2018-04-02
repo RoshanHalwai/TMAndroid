@@ -4,12 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/black"
-    tools:context="com.themaid.tmandroid.onboarding.maid.MaidServices">
+    tools:context="com.themaid.tmandroid.onboarding.common.MaidServices">
 
     <ImageView
         android:id="@+id/tile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:alpha="0.1"
         android:contentDescription="@string/tile_image"
         android:scaleType="fitXY"
@@ -59,7 +62,7 @@
         android:layout_below="@+id/toolbar"
         android:layout_margin="20dp"
         android:gravity="center"
-        android:text="@string/select_services_text"
+        android:text="@string/select_services_text_maid"
         android:textColor="@android:color/white"
         android:textSize="20sp" />
 

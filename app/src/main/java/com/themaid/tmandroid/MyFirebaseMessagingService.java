@@ -52,6 +52,7 @@ public class MyFirebaseMessagingService extends com.google.firebase.messaging.Fi
                 .setContentTitle(title)
                 .setContentText(message)
                 .setAutoCancel(true)
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .setSound(uri)
                 .setContentIntent(pendingIntent);
 

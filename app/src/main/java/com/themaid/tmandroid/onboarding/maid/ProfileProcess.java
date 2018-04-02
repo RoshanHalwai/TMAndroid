@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.themaid.tmandroid.Constants;
 import com.themaid.tmandroid.R;
-import com.themaid.tmandroid.onboarding.SetupProfileAuto;
+import com.themaid.tmandroid.onboarding.common.SetupProfileAuto;
 
 public class ProfileProcess extends AppCompatActivity {
 

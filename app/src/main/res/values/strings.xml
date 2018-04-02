@@ -79,16 +79,22 @@
     <string name="navigate">Navigate</string>
     <string name="my_ratings">My Ratings</string>
 
+    /*Maid Services Activity - Maid*/
     <string name="maid_services_title">Services</string>
     <string name="vegetarian">Vegetarian</string>
     <string name="non_vegetarian">Non - Vegetarian</string>
     <string name="cooking">COOKING</string>
     <string name="household">HOUSEHOLD</string>
-    <string name="select_services_text">Please select the services that you can provide to customers</string>
+    <string name="select_services_text_maid">Please select the services that you can provide to customers</string>
     <string name="house_cleaning">House Cleaning</string>
     <string name="utensils_washing">Utensils Washing</string>
     <string name="clothes_washing">Clothes Washing</string>
     <string name="dusting">Dusting</string>
     <string name="deep_cleaning">Deep Cleaning</string>
     <string name="add_work_details">Add Work Details</string>
+
+    /*Maid Services Activity - Customer*/
+    <string name="select_services_text_customer">Please select the services that you want from maid</string>
+    <string name="calculate_maid_charges">Calculate Maid Charges</string>
+
 </resources>
