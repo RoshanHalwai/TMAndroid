@@ -77,7 +77,7 @@
     <string name="logout">Logout</string>
     <string name="zero">0</string>
     <string name="navigate">Navigate</string>
-    <string name="my_ratings">My Ratings</string>
+    <string name="my_ratings">My Rating</string>
 
     /*Maid Services Activity - Maid*/
     <string name="maid_services_title">Services</string>
@@ -96,5 +96,13 @@
     /*Maid Services Activity - Customer*/
     <string name="select_services_text_customer">Please select the services that you want from maid</string>
     <string name="calculate_maid_charges">Calculate Maid Charges</string>
+
+    /*Maid charges dialog box*/
+    <string name="confirm_booking">Confirm Booking</string>
+    <string name="maid_charges">Maid Charges</string>
+    <string name="vegetarian_cooking">Vegetarian Cooking</string>
+    <string name="non_vegetarian_cooking">Non-Vegetarian Cooking</string>
+    <string name="total_charges">Total Charges</string>
+    <string name="charges_may_vary_during_peak_hours">Charges may vary during peak hours</string>
 
 </resources>

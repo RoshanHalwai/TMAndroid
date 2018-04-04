@@ -17,12 +17,15 @@ public class Constants {
     public static final String FIREBASE_CHILD_SERVICES = "services";
     public static final String FIREBASE_CHILD_USER_TYPE = "userType";
 
+    public static final String FIREBASE_CHILD_MAIDCHARGES = "maidCharges";
+
     /* Intent Keys */
     public static final String USER_OBJECT_INTENT_KEY = "UserObject";
 
     /* User Types */
     public static final String USER_TYPE_CUSTOMER = "Customer";
     public static final String USER_TYPE_MAID = "Maid";
+
     /*Google package*/
     public static final String GOOGLE_MAPS_PACKAGE = "com.google.android.apps.maps";
 
@@ -33,5 +36,9 @@ public class Constants {
 
     public static Typeface setLatoLightItalicFont(Context c) {
         return Typeface.createFromAsset(c.getAssets(), "fonts/Lato-LightItalic.ttf");
+    }
+
+    public static Typeface setLatoRegularFont(Context c) {
+        return Typeface.createFromAsset(c.getAssets(), "fonts/Lato-Regular.ttf");
     }
 }

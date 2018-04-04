@@ -29,6 +29,7 @@ public class MaidBookings extends AppCompatActivity {
         FirebaseMessaging.getInstance().subscribeToTopic("SEATTLE_WEATHER");
 
         /* Getting Id for all the views */
+        final TextView textRatings = findViewById(R.id.textRatings);
         final TextView textBookingTitle = findViewById(R.id.textBookingTitle);
         final TextView textTodayDate = findViewById(R.id.textTodayDate);
         final TextView textNumberOfBookings = findViewById(R.id.textNumberOfBookings);
@@ -45,6 +46,7 @@ public class MaidBookings extends AppCompatActivity {
         final Button buttonNavigate = findViewById(R.id.buttonNavigate);
 
         /* Setting font for all the views */
+        textRatings.setTypeface(Constants.setLatoRegularFont(this));
         textBookingTitle.setTypeface(Constants.setLatoLightFont(this));
         textTodayDate.setTypeface(Constants.setLatoLightFont(this));
         textNumberOfBookings.setTypeface(Constants.setLatoLightFont(this));

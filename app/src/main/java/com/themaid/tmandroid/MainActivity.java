@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         if (currentUser != null) {
             Dialog = new ProgressDialog(MainActivity.this);
             Dialog.setMessage("Collecting data...");
+            Dialog.setCanceledOnTouchOutside(false);
             Dialog.show();
 
             /* Getting reference to Firebase - Real time database*/
@@ -53,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
             userPrivateInfo.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
+                    Dialog.dismiss();
                     if (dataSnapshot.hasChild(currentUser.getUid())) {
                         String strCustomerType = Objects.requireNonNull(dataSnapshot.child(currentUser.getUid()).child(Constants.FIREBASE_CHILD_USER_TYPE).getValue()).toString();
                         if (strCustomerType.equals(Constants.USER_TYPE_CUSTOMER)) {
@@ -67,7 +69,6 @@ public class MainActivity extends AppCompatActivity {
                          * hence we redirect user to initial profile setup*/
                         gettingStarted();
                     }
-                    Dialog.dismiss();
                 }
 
                 @Override
