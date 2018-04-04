@@ -27,6 +27,7 @@ import com.themaid.tmandroid.onboarding.pojo.UserObject;
 public class MaidServices extends AppCompatActivity {
 
     private static final String RUPEES = "Rs ";
+    private boolean isConnected = false;
 
     private ImageView backButton;
     private CheckBox checkboxVegCooking;
@@ -59,13 +60,12 @@ public class MaidServices extends AppCompatActivity {
         checkboxClothesWashing = findViewById(R.id.checkboxClothesWashing);
         checkboxDusting = findViewById(R.id.checkboxDusting);
         checkboxDeepCleaning = findViewById(R.id.checkboxDeepCleaning);
+        backButton = findViewById(R.id.backButton);
         final TextView textMaidServicesTitle = findViewById(R.id.textMaidServicesTitle);
         final TextView textSelectServices = findViewById(R.id.textSelectServices);
         final TextView textCooking = findViewById(R.id.textCooking);
         final TextView textHousehold = findViewById(R.id.textHousehold);
         final Button buttonNext = findViewById(R.id.buttonAddWorkDetails);
-
-        backButton = findViewById(R.id.backButton);
 
         /* Setting font for all the views */
         checkboxVegCooking.setTypeface(Constants.setLatoLightFont(this));
@@ -86,10 +86,12 @@ public class MaidServices extends AppCompatActivity {
             textSelectServices.setText(R.string.select_services_text_customer);
             buttonNext.setText(R.string.calculate_maid_charges);
             buttonNext.setOnClickListener(v -> {
-                if (isServiceSelected()) {
+                if (isConnected && isServiceSelected()) {
                     showMaidChargesDialog();
+                } else if (!isConnected) {
+                    Toast.makeText(MaidServices.this, "Please check your internet connection", Toast.LENGTH_LONG).show();
                 } else {
-                    Toast.makeText(MaidServices.this, "Please select at least one service", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MaidServices.this, "Please select at least one service", Toast.LENGTH_LONG).show();
                 }
             });
             backButton.setVisibility(View.INVISIBLE);
@@ -98,6 +100,11 @@ public class MaidServices extends AppCompatActivity {
             buttonNext.setOnClickListener(view -> {
                 Intent intent = new Intent(MaidServices.this, WorkDetails.class);
 
+                /*Here based on the maid selection of service we set the variables and pass this object to
+                 * next activity, so after onboarding of Maid is complete, we store all these details under
+                 * services that Maid can provide to Customers*/
+
+                //TODO: Allow Maids to change these options even after onboarding is completed.
                 MaidServiceObject maidServiceObject = new MaidServiceObject();
                 maidServiceObject.setVegCooking(checkboxVegCooking.isChecked());
                 maidServiceObject.setNonVegCooking(checkboxNonVegCooking.isChecked());
@@ -123,28 +130,47 @@ public class MaidServices extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference userPrivateInfo = database.getReference(Constants.FIREBASE_CHILD_MAIDCHARGES);
-        userPrivateInfo.addValueEventListener(new ValueEventListener() {
+
+        DatabaseReference connectedRef = FirebaseDatabase.getInstance().getReference(".info/connected");
+        connectedRef.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                MaidCharges maidCharges = dataSnapshot.getValue(MaidCharges.class);
-                if (maidCharges != null) {
-                    vegCookingCharges = RUPEES + maidCharges.getVegCooking();
-                    nonVegCookingCharges = RUPEES + maidCharges.getNonVegCooking();
-                    houseCleaningCharges = RUPEES + maidCharges.getHouseCleaning();
-                    utensilsWashingCharges = RUPEES + maidCharges.getUtensilsWashing();
-                    clothesWashingCharges = RUPEES + maidCharges.getClothesWashing();
-                    dustingCharges = RUPEES + maidCharges.getDusting();
-                    deepCleaningCharges = RUPEES + maidCharges.getDeepCleaning();
+            public void onDataChange(DataSnapshot snapshot) {
+                isConnected = snapshot.getValue(boolean.class);
+                if (isConnected) {
+                    FirebaseDatabase database = FirebaseDatabase.getInstance();
+                    DatabaseReference userPrivateInfo = database.getReference(Constants.FIREBASE_CHILD_MAIDCHARGES);
+                    userPrivateInfo.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            MaidCharges maidCharges = dataSnapshot.getValue(MaidCharges.class);
+                            if (maidCharges != null) {
+                                vegCookingCharges = RUPEES + maidCharges.getVegCooking();
+                                nonVegCookingCharges = RUPEES + maidCharges.getNonVegCooking();
+                                houseCleaningCharges = RUPEES + maidCharges.getHouseCleaning();
+                                utensilsWashingCharges = RUPEES + maidCharges.getUtensilsWashing();
+                                clothesWashingCharges = RUPEES + maidCharges.getClothesWashing();
+                                dustingCharges = RUPEES + maidCharges.getDusting();
+                                deepCleaningCharges = RUPEES + maidCharges.getDeepCleaning();
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+
+                        }
+                    });
+                } else {
+                    Toast.makeText(MaidServices.this, "Please check your internet connection", Toast.LENGTH_LONG).show();
                 }
             }
 
             @Override
-            public void onCancelled(DatabaseError databaseError) {
-
+            public void onCancelled(DatabaseError error) {
+                System.err.println("Listener was cancelled");
             }
         });
+
+
     }
 
     /**
