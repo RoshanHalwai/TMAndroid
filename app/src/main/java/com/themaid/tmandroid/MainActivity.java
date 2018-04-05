@@ -3,6 +3,7 @@ package com.themaid.tmandroid;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.TextView;
@@ -53,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
             DatabaseReference userPrivateInfo = database.getReference(Constants.FIREBASE_CHILD_USERS).child(Constants.FIREBASE_CHILD_PRIVATE);
             userPrivateInfo.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     Dialog.dismiss();
                     if (dataSnapshot.hasChild(currentUser.getUid())) {
                         String strCustomerType = Objects.requireNonNull(dataSnapshot.child(currentUser.getUid()).child(Constants.FIREBASE_CHILD_USER_TYPE).getValue()).toString();

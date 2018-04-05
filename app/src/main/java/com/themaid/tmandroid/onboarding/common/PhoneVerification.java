@@ -3,6 +3,7 @@ package com.themaid.tmandroid.onboarding.common;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -231,7 +232,7 @@ public class PhoneVerification extends AppCompatActivity {
     private void setUpVerificationCallbacks() {
         verificationCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
             @Override
-            public void onVerificationCompleted(PhoneAuthCredential phoneAuthCredential) {
+            public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
                 Toast.makeText(PhoneVerification.this, "Verification Success", Toast.LENGTH_LONG).show();
                 signInWithPhoneAuthCredential(phoneAuthCredential);
             }
@@ -294,7 +295,7 @@ public class PhoneVerification extends AppCompatActivity {
                 resendToken);
     }
 
-    private void signInWithPhoneAuthCredential(PhoneAuthCredential phoneAuthCredential) {
+    private void signInWithPhoneAuthCredential(@NonNull PhoneAuthCredential phoneAuthCredential) {
         fbAuth.signInWithCredential(phoneAuthCredential)
                 .addOnCompleteListener(this, (task) -> {
                     if (task.isSuccessful()) {
@@ -302,7 +303,7 @@ public class PhoneVerification extends AppCompatActivity {
 
                         userPrivateInfo.addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
-                            public void onDataChange(DataSnapshot dataSnapshot) {
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                 /* Check if User already exists */
                                 if (dataSnapshot.hasChild(firebaseUser.getUid())) {
                                     String strCustomerType = Objects.requireNonNull(dataSnapshot.child(firebaseUser.getUid()).child(Constants.FIREBASE_CHILD_USER_TYPE).getValue()).toString();

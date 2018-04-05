@@ -3,12 +3,6 @@ package com.themaid.tmandroid;
 import android.content.Context;
 import android.graphics.Typeface;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
 public class Constants {
 
     /* Firebase Child Constants */

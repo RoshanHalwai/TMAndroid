@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.media.RingtoneManager;
 import android.net.Uri;
+import android.support.annotation.NonNull;
 import android.support.v4.app.NotificationCompat;
 
 import com.google.firebase.messaging.RemoteMessage;
@@ -25,7 +26,7 @@ public class MyFirebaseMessagingService extends com.google.firebase.messaging.Fi
     }
 
     @Override
-    public void onMessageReceived(RemoteMessage remoteMessage) {
+    public void onMessageReceived(@NonNull RemoteMessage remoteMessage) {
         if (remoteMessage.getData() != null) {
             Map<String, String> data = remoteMessage.getData();
             String title = data.get("title");

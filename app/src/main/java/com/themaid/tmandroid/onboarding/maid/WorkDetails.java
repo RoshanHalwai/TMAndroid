@@ -2,6 +2,7 @@ package com.themaid.tmandroid.onboarding.maid;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -51,7 +52,7 @@ public class WorkDetails extends AppCompatActivity {
             }
 
             @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            public void onTextChanged(@NonNull CharSequence charSequence, int i, int i1, int i2) {
                 if (charSequence.toString().length() == 10) {
                     editFullName.requestFocus();
                 }

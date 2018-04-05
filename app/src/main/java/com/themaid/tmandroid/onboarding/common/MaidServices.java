@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -19,6 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.themaid.tmandroid.Constants;
 import com.themaid.tmandroid.MaidCharges;
+import com.themaid.tmandroid.MaidMaps;
 import com.themaid.tmandroid.R;
 import com.themaid.tmandroid.onboarding.maid.WorkDetails;
 import com.themaid.tmandroid.onboarding.pojo.MaidServiceObject;
@@ -134,14 +136,14 @@ public class MaidServices extends AppCompatActivity {
         DatabaseReference connectedRef = FirebaseDatabase.getInstance().getReference(".info/connected");
         connectedRef.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot snapshot) {
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
                 isConnected = snapshot.getValue(boolean.class);
                 if (isConnected) {
                     FirebaseDatabase database = FirebaseDatabase.getInstance();
                     DatabaseReference userPrivateInfo = database.getReference(Constants.FIREBASE_CHILD_MAIDCHARGES);
                     userPrivateInfo.addValueEventListener(new ValueEventListener() {
                         @Override
-                        public void onDataChange(DataSnapshot dataSnapshot) {
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             MaidCharges maidCharges = dataSnapshot.getValue(MaidCharges.class);
                             if (maidCharges != null) {
                                 vegCookingCharges = RUPEES + maidCharges.getVegCooking();
@@ -308,6 +310,8 @@ public class MaidServices extends AppCompatActivity {
         stringTotalCharges = stringTotalCharges + String.valueOf(integerTotalCharges);
 
         textTotalChargesAmount.setText(stringTotalCharges);
+
+        buttonConfirmBooking.setOnClickListener(view -> startActivity(new Intent(this, MaidMaps.class)));
         dialog.show();
     }
 

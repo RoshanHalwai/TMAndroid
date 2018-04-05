@@ -105,4 +105,7 @@
     <string name="total_charges">Total Charges</string>
     <string name="charges_may_vary_during_peak_hours">Charges may vary during peak hours</string>
 
+    /*Maid Maps*/
+    <string name="title_activity_maid_maps">Map</string>
+
 </resources>
